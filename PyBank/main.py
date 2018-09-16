@@ -1,7 +1,7 @@
 #establish imports
 import os
 import csv
-
+import datetime
 
 #set csv path 
 csvpath = os.path.join('Resources', 'budget_data.csv') 
@@ -58,35 +58,37 @@ with open(csvpath, newline='') as csvfile:
 
 	#Data Results
 	months_count_result = months_count(budgetData)
-	total_profitLoss_result = net_profit_loss(budgetData)
-	avg_profitLoss_result = total_profitLoss_result/months_count_result
+	total_profitLoss_result = '${:,.2f}'.format(net_profit_loss(budgetData))
+	#avg_profitLoss_result = total_profitLoss_result/months_count_result
 	greatest_profitIncrease_result = max_profitIncrease(budgetData)
 	greatest_profitDecrease_result = min_profitDecrease(budgetData)
 
 #Print results
-
-	print(months_count_result)
-	print(total_profitLoss_result)
-	print(avg_profitLoss_result)
-	print(greatest_profitIncrease_result)
-	print(greatest_profitDecrease_result)
+print("\nFinacial Analysis!!!\n___________________________\n")
+print(f'Total Month: {months_count_result}')
+print(total_profitLoss_result)
+#print(avg_profitLoss_result)
+print(greatest_profitIncrease_result)
+print(greatest_profitDecrease_result)
 #print(f'Total: ${}')
 #print(f'Average Change: ${avg_monthly_change_result}')
 #print(f'Greatest Increase in Profits: {} {}')
 #print(f'Greatest Decrease in PRofits: {} {}')	
 
 # Set variable for output file
-output_file = os.path.join("web_final.csv")
+output_file = os.path.join("PyBank_results.txt")
 
 
 #  Open the output file
-#with open(output_file, "w", newline="") as datafile:
-#    writer = csv.writer(datafile)
+with open(output_file, "w", newline="") as datafile:
+	writer = csv.writer(datafile)
 #
 #    # Write the header row
-#    writer.writerow(["Title", "Course Price", "Subscribers", "Reviews Left",
-#                     "Percent of Reviews", "Length of Course"])
-#
+	writer.writerow(["Finacial Analysis \n  -----------------------------"])
+	writer.writerow(f'Total Months: {greatest_profitIncrease_result}')
+	writer.writerow(f'Average Change: {greatest_profitIncrease_result}')
+	writer.writerow(f'Greatest Increase: {greatest_profitIncrease_result}')
+	writer.writerow(f'Greatest Decrease: {greatest_profitIncrease_result}')
 #    # Write in zipped rows
 #    writer.writerows(cleaned_csv)
 	
