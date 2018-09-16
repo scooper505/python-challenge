@@ -66,10 +66,10 @@ with open(csvpath, newline='') as csvfile:
 #Print results
 print("\nFinacial Analysis!!!\n___________________________\n")
 print(f'Total Month: {months_count_result}')
-print(total_profitLoss_result)
-#print(avg_profitLoss_result)
-print(greatest_profitIncrease_result)
-print(greatest_profitDecrease_result)
+print(f'Total : {total_profitLoss_result}')
+print(f'Greatest Increase in Profits: {greatest_profitIncrease_result}')
+print(f'Greatest Decrease in Profits: {greatest_profitDecrease_result}')
+
 #print(f'Total: ${}')
 #print(f'Average Change: ${avg_monthly_change_result}')
 #print(f'Greatest Increase in Profits: {} {}')
@@ -82,8 +82,9 @@ output_file = os.path.join("PyBank_results.txt")
 #  Open the output file
 with open(output_file, "w", newline="") as datafile:
 	writer = csv.writer(datafile)
-#
-#    # Write the header row
+
+    # Write the header row
+    #write results to txt file
 	writer.writerow(["Finacial Analysis \n  -----------------------------"])
 	writer.writerow(f'Total Months: {greatest_profitIncrease_result}')
 	writer.writerow(f'Average Change: {greatest_profitIncrease_result}')
