@@ -30,6 +30,9 @@ def max_profitIncrease(data):
 def min_profitDecrease(data):
 	minProfit = min(data, key=lambda row: float(row[1]))
 	return minProfit
+
+def moving_average(data):
+	for t
 	
 	
 
@@ -59,13 +62,14 @@ with open(csvpath, newline='') as csvfile:
 	#Data Results
 	months_count_result = months_count(budgetData)
 	total_profitLoss_result = '${:,.2f}'.format(net_profit_loss(budgetData))
-	#avg_profitLoss_result = total_profitLoss_result/months_count_result
+	avg_profitLoss_result = '${:,.2f}'.format(total_profitLoss_result/months_count_result)
 	greatest_profitIncrease_result = max_profitIncrease(budgetData)
 	greatest_profitDecrease_result = min_profitDecrease(budgetData)
 
 #Print results
 print("\nFinacial Analysis!!!\n___________________________\n")
 print(f'Total Month: {months_count_result}')
+print(f'Average Change: {avg_profitLoss}')
 print(f'Total : {total_profitLoss_result}')
 print(f'Greatest Increase in Profits: {greatest_profitIncrease_result}')
 print(f'Greatest Decrease in Profits: {greatest_profitDecrease_result}')
